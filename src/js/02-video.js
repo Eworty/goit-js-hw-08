@@ -9,13 +9,12 @@ const currentTime = function (data) {
     'videoplayer-current-time',
     JSON.stringify(data.seconds)
   );
-  const onPlay = player.on('timeupdate', throttle(currentTime, 1000));
 
   let time = localStorage.getItem('videoplayer-current-time');
   console.log(time);
 };
 
-player.on('timeupdate', currentTime);
+player.on('timeupdate', throttle(currentTime, 1000));
 
 player
   .setCurrentTime(localStorage.getItem(`videoplayer-current-time`))
