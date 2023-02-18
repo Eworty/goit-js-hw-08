@@ -22,6 +22,7 @@ function storageFormData(e) {
 }
 
 function onFormSubmit(e) {
+  e.preventDefault();
   const savedDatas = JSON.parse(localStorage.getItem(STORAGE_KEY));
   console.log(savedDatas);
 
